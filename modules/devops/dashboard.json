@@ -1,0 +1,20 @@
+{
+    "widgets": [
+        {
+            "height": 6,
+            "width": 6,
+            "y": 0,
+            "x": 0,
+            "type": "metric",
+            "properties": {
+                "view": "timeSeries",
+                "stacked": false,
+                "metrics": [
+                    [ "AWS/Events", "Invocations", "RuleName", "time-to-bucket-dev-RateHandlerEventsRuleSchedule1-13P4JFS3EDWPT" ],
+                    [ "...", "dailyfeeds" ]
+                ],
+                "region": "ap-southeast-1"
+            }
+        }
+    ]
+}
