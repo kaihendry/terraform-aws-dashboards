@@ -4,7 +4,7 @@ variable "component_name" {
   default     = "dash"
 }
 
-variable "environment_type" {
+variable "environment" {
   type        = string
   description = "Type of environment they are deployed into"
   default     = "dev"
@@ -17,17 +17,12 @@ variable "owner" {
     default     = "pivotal"
 }
 
-variable "resource_prefix" {
-    type        = string
-    description = "Environment to deploy into"
-    default     = "dashiing"
-}
 
 
 locals {
-  resource_prefix   = "${var.component_name}-${var.environment_type}"
+  resource_prefix   = "${var.component_name}-${var.environment}"
   tags = {
-    "Environment" : var.environment_type
+    "Environment" : var.environment
     "App"         : var.component_name
     "Owner"       : var.owner
   }

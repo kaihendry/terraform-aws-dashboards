@@ -2,6 +2,7 @@ data "template_file" "dashboard" {
  template = file("${path.module}/dashboard.json")
  vars = {
    aws_region = var.aws_region
+   environment = var.environment
  }
 }
 
