@@ -1,22 +1,85 @@
 {
-    "widgets": [
-        {
-            "height": 6,
-            "width": 6,
-            "y": 0,
-            "x": 0,
-            "type": "metric",
-            "properties": {
-                "metrics": [
-                    [ "AWS/Events", "Invocations", "RuleName", "time-to-bucket-dev-RateHandlerEventsRuleSchedule1-13P4JFS3EDWPT", { "label": "a better name ${environment}" } ],
-                    [ "...", "dailyfeeds" ]
-                ],
-                "view": "timeSeries",
-                "stacked": false,
-                "region": "ap-southeast-1",
-                "period": 300,
-                "stat": "Average"
+  "widgets": [
+    {
+      "type": "metric",
+      "x": 0,
+      "y": 0,
+      "width": 11,
+      "height": 6,
+      "properties": {
+        "metrics": [
+          [
+            "AWS/Lambda",
+            "Invocations",
+            "FunctionName",
+            "ltabus-MainFunction-zNCAl6at5a0X",
+            { "stat": "Sum", "label": "MainFunction" }
+          ],
+          [
+            {
+              "expression": "SUM(METRICS())",
+              "label": "Total Invocations",
+              "yAxis": "right"
             }
-        }
-    ]
+          ]
+        ],
+        "region": "${aws_region}",
+        "title": "Invocations"
+      }
+    },
+    {
+      "type": "metric",
+      "x": 0,
+      "y": 6,
+      "width": 23,
+      "height": 5,
+      "properties": {
+        "metrics": [
+          [
+            "AWS/Lambda",
+            "Errors",
+            "FunctionName",
+            "ltabus-MainFunction-zNCAl6at5a0X",
+            { "stat": "Sum", "label": "MainFunction" }
+          ],
+          [
+            {
+              "expression": "SUM(METRICS())",
+              "label": "Total Errors",
+              "yAxis": "right"
+            }
+          ]
+        ],
+        "region": "${aws_region}",
+        "title": "Errors"
+      }
+    },
+    {
+      "type": "metric",
+      "x": 11,
+      "y": 0,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "metrics": [
+          [
+            "AWS/Lambda",
+            "Duration",
+            "FunctionName",
+            "ltabus-MainFunction-zNCAl6at5a0X",
+            { "stat": "Average", "label": "MainFunction" }
+          ],
+          [
+            {
+              "expression": "AVG(METRICS())",
+              "label": "Average Duration",
+              "yAxis": "right"
+            }
+          ]
+        ],
+        "region": "${aws_region}",
+        "title": "Duration (average)"
+      }
+    }
+  ]
 }
